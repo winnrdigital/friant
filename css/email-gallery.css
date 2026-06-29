@@ -1,0 +1,13 @@
+.hero-content .btn {
+  color: white;
+  border: 1px solid white;
+  padding: 1rem 2rem;
+  display: inline-block;
+  text-transform: uppercase;
+  margin-top: 2rem;
+}
+
+.masonry-brick.seating-brick {
+  width: calc(50% - 8px) !important;
+  max-width: calc(50% - 8px) !important;
+}

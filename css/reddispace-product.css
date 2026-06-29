@@ -1,0 +1,101 @@
+@import "reddispace-share.css";
+
+.reedispace-title,
+.reedispace-block-section .reedispace-desc {
+  font-size: 25px !important;
+}
+
+.hero-bg-video,
+.hero-banner-right .section-image img {
+  width: 100%;
+}
+
+.banner-desc {
+  max-width: 80%;
+}
+
+.lft-tech-img,
+.pro-tech-space-section .o-button {
+  display: none;
+}
+
+.pro-tech-space-section .rlt-tech-cont {
+  width: 100%;
+}
+
+.tech-specs-wrapper .tech-specs-column {
+  max-width: none;
+  flex: 1;
+}
+
+.features-left-side,
+.features-right-side {
+  width: 30%;
+}
+
+.features-center-image {
+  width: 40%;
+}
+
+.rt-product-desc {
+  text-align: center;
+}
+
+.tech-specs-wrapper .tech-specs-column .tech-spec-left-icon img { 
+  width: 32px;
+}
+
+.pro-tech-space-section .flex-col {
+  width: 100%;
+}
+
+.dowanload-loop-wrapper {
+  gap: 30px;
+  justify-content: center;
+
+  .download-link {
+    background-color: rgb(100 100 100 / 0.75);
+    padding: 10px 50px;
+    &:hover {
+      background-color: #fff;
+    }
+  }
+}
+
+.home-hero-slider .slick-dots li button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+}
+
+.feature-loop-wrapper {
+  gap: 5vw;
+}
+
+.features-right-side .feature-desc {
+  text-align: left;
+}
+
+.feature-box.right-box {
+  justify-items: start;
+}
+@media (max-width: 1100px) {
+
+  .features-left-side,
+  .features-right-side,
+  .features-center-image {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1536px) {
+  .home-hero-slider {
+    height: 550px;
+  }
+}
+
+@media (max-width: 991px) {
+  .feature-loop-wrapper {
+    gap: 5vw;
+  }
+}

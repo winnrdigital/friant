@@ -1,0 +1,11 @@
+@media (min-width: 980px) {
+  ul.nav ul.sub-menu li.menu-item.menu-item-type-custom.menu-item-object-custom.menu-item-has-children:first-child {
+    max-width: 280px !important;
+  }
+
+  ul.nav {
+    .menu-row1, .menu-row2, .menu-row3, .menu-row4 {
+      margin-left: 0 !important;
+    }
+  }
+}

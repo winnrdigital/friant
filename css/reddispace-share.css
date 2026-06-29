@@ -1,0 +1,57 @@
+:root {
+  --color-gray: #666;
+}
+
+.reedispace-block-section {
+  padding: 0;
+  margin: 0;
+}
+
+.choiced-made-section,
+.cohoom-iframe-section,
+.pro-tech-space-section,
+.meet-reedispace-section,
+.pr-related-product-section {
+  padding: 80px 0;
+}
+
+.custom-container {
+  max-width: none;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.reedispace-desc {
+  color: var(--color-gray);
+  line-height: 1.5 !important;
+  padding-inline: 100px;
+}
+
+.related-products-wrapper {
+  justify-content: center;
+}
+
+.feature-description {
+  color: var(--color-gray);
+}
+
+#top-menu li.mega-menu li>ul {
+  width: 100% !important;
+}
+
+@media (max-width: 991px) {
+  .custom-container {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  
+  .reedispace-desc {
+    padding-inline: 0;
+  }
+}
+
+@media (min-width: 980px) {
+  ul.nav ul.sub-menu li.menu-item.menu-item-type-custom.menu-item-object-custom.menu-item-has-children:first-child {
+    max-width: 280px !important;
+  }
+}

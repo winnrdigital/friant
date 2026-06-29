@@ -1,0 +1,78 @@
+<?php
+$current_ID = get_the_ID();
+$current_post_ID = get_the_ID();
+$related_products_bg_color = get_sub_field('related_products_bg_color', $current_ID);
+$related_products_section_title = get_sub_field('related_products_section_title', $current_ID);
+$related_products_section_description = get_sub_field('related_products_section_description', $current_ID);
+$select_related_products = get_sub_field('select_related_products', $current_ID);
+;
+
+if($related_products_hide_section != 1){ ?>
+<section class="pr-related-product-section common-padding" style="background-color:<?php echo $related_products_bg_color; ?>;">
+    <div class="custom-container">
+        <div class="d-flex flex-row">
+            <div class="flex-col">
+                <div class="related-product-info">
+                    <?php if(!empty($related_products_section_title)) { ?>
+                        <h3 class="rt-product-title head-typ2"><?php echo esc_html($related_products_section_title); ?></h3>
+                    <?php } ?>
+                    <?php if(!empty($related_products_section_description)): ?>
+                        <div class="rt-product-desc"><?php echo wp_kses_post($related_products_section_description); ?></div>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <div class="flex-col">
+				<div class="rt-product-list-wrapper">
+					<?php 
+					// Get related products (Relationship field)
+					$related_products = get_sub_field('select_related_products');
+
+					if ( $related_products ) : ?>   
+						<div class="related-products-wrapper">
+							<?php foreach ( $related_products as $current_ID ) : 
+								// Get product data
+								$product_link   = get_permalink($current_ID);
+								$product_title  = get_the_title($current_ID);
+								$product_image  = get_the_post_thumbnail_url($current_ID, 'medium');
+								$product_alt    = get_post_meta(get_post_thumbnail_id($current_ID), '_wp_attachment_image_alt', true);
+
+								$spec_item_count = get_post_meta($current_ID->ID, 'product_single_page_sections_1_technical_specs_loop')[0];
+
+								$product_nickname = substr($product_image, strrpos($product_image, "/") + 8, -4);
+								
+								$product_nickname = "Reddispace ".ucwords(str_replace("time", " Time", str_replace("adapod", "ADA Pod", $product_nickname)));
+								// $product_nickname = "Reddispace ".strtoupper(substr($product_nickname, 0, 1)).substr($product_nickname, 1);
+							?>
+								<div class="related-product-item" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1000">
+									<?php if ( $product_image ) : ?>
+										<img src="<?php echo esc_url($product_image); ?>" alt="<?php echo esc_attr($product_alt ?: $product_title); ?>">
+									<?php endif; ?>
+									<h2><?php echo esc_html($product_title); ?></h2>
+									<a href="<?php echo esc_url($product_link); ?>" class="view-product-btn">
+										View
+									</a>
+									<?php
+    							if (is_page_template('reddispace-collection-template.php')) {
+									
+											echo "<div>";
+											echo "<p class='text__focus bg-dark'>".$product_alt."</p>";
+											echo "<p class='text__focus bg-light'>".get_post_meta($current_ID->ID, 'product_single_page_sections_10_meet_reedispace_title')[0]."</p>";
+											echo "<p class='text__focus bg-dark'>".get_post_meta($current_ID->ID, 'product_single_page_sections_10_meet_reedispace_subtitle')[0]."</p>";
+											echo "<p class='text__focus bg-light'>".get_post_meta($current_ID->ID, 'product_single_page_sections_10_meet_reedispace_description')[0]."</p>";
+											echo "<a class='reedispace-cta-btn' href='".esc_url($product_link)."' target='_self'>Learn more</a>";
+											echo "</div>";
+									}
+									?>
+								</div>
+							<?php endforeach; ?>
+						</div>
+						<?php if (!is_page_template('reddispace-collection-template.php')) { ?>
+						<div style="text-align: center; margin-top: 32px;"><a class='reedispace-cta-btn' href='https://friant.com/officepods' target='_self'  data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1000">Office Pods Collection</a></div>
+						<?php } ?>
+					<?php endif; ?>
+				</div>
+            </div>
+        </div>
+    </div>
+</section>
+<?php } ?>
